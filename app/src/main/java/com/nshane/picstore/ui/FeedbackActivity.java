@@ -64,7 +64,7 @@ public class FeedbackActivity extends AppCompatActivity {
         intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{"1742646436@qq.com"});
         intent.putExtra(android.content.Intent.EXTRA_SUBJECT, "返回");
         intent.putExtra(android.content.Intent.EXTRA_TEXT, content);
-        String title = "send email"; // 分享选择栏的title
+        String title = "发送反馈"; // 分享选择栏的title
         Intent chooserIntent = Intent.createChooser(intent, title);
         startActivity(chooserIntent);  //this intent starts a chooserActivity to pop a dialog listing available email app. you can choose any one app to send email(like gmail , email...)
     }
