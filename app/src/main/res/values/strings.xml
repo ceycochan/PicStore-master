@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PicStore</string>
+    <string name="share">Share to</string>
 </resources>

@@ -34,7 +34,7 @@ public class ServiceActivity extends AppCompatActivity {
     private ServiceConnection connection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            downloadBinder = (MyService.DownloadBinder) service; // 向下转型
+            downloadBinder = (MyService.DownloadBinder) service; // download transformation
             downloadBinder.startDownload();
             downloadBinder.getProgress();
         }

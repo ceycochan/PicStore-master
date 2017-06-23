@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nshane.picstore">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -28,10 +32,23 @@
             android:name=".services.MyService"
             android:enabled="true"
             android:exported="false" />
+
         <activity
             android:name=".ui.DownLoadActivity"
             android:enabled="true"
             android:exported="false" />
+        <activity
+            android:name=".ui.FeedbackActivity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:enabled="true"
+            android:exported="false" />
+
+        <!--android:configChanges=""
+        When a configuration change occurs at runtime,
+        the activity is shut down and restarted by default,
+        but declaring a configuration with this attribute will prevent the activity from being restarted.
+        Instead, the activity remains running and its onConfigurationChanged() method is called.-->
+
     </application>
 
 </manifest>

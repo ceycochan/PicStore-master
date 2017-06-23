@@ -56,5 +56,21 @@
         android:text="SimpleDateFormat"
         android:textAllCaps="false" />
 
+    <Button
+        android:id="@+id/btn_7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Share / Null Transfer"
+        android:textAllCaps="false" />
+
+
+    <Button
+        android:id="@+id/btn_8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="FeedBack"
+        android:textAllCaps="false" />
 
 </LinearLayout>
