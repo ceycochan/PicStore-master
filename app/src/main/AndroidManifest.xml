@@ -54,6 +54,12 @@
         but declaring a configuration with this attribute will prevent the activity from being restarted.
         Instead, the activity remains running and its onConfigurationChanged() method is called.-->
 
+        <activity
+            android:name=".ui.ConstraintActivity"
+            android:enabled="true"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.nshane.picstore.config.Constant;
 import com.nshane.picstore.http.MyTask;
+import com.nshane.picstore.ui.ConstraintActivity;
 import com.nshane.picstore.ui.FeedbackActivity;
 import com.nshane.picstore.ui.ServiceActivity;
 import com.nshane.picstore.utils.FileUtil;
@@ -40,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     Button btn7;
     @BindView(R.id.btn_8)
     Button btn8;
+    @BindView(R.id.btn_9)
+    Button btn9;
 
 
     @Override
@@ -52,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.btn_1, R.id.btn_2, R.id.btn_3, R.id.btn_4, R.id.btn_5, R.id.btn_6, R.id.btn_7, R.id.btn_8})
+    @OnClick({R.id.btn_1, R.id.btn_2, R.id.btn_3, R.id.btn_4, R.id.btn_5, R.id.btn_6, R.id.btn_7, R.id.btn_8, R.id.btn_9})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_1:
@@ -92,6 +95,8 @@ public class MainActivity extends AppCompatActivity {
                  */
                 startActivity(new Intent(this, FeedbackActivity.class));
                 break;
+            case R.id.btn_9:
+                startActivity(new Intent(this, ConstraintActivity.class)); // for layout test only
             default:
                 break;
         }
