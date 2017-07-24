@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_8:
                 /**
-                 *  simulating feedback
+                 *  simulating feedback //
                  */
                 startActivity(new Intent(this, FeedbackActivity.class));
                 break;
