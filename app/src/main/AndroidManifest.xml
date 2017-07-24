@@ -59,6 +59,35 @@
             android:enabled="true"
             android:exported="false"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.ToolbarActivity"
+            android:enabled="true"
+            android:exported="false" />
+        <activity android:name=".ui.ImmersiveActivity" />
+
+        <activity
+            android:name=".ui.RXJavaActivity"
+            android:enabled="true"
+            android:exported="false" />
+        <activity
+            android:name=".ui.RXRetrofitActivity"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.RetrofitActivity"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.PopWindowActivity"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.FlashAnimActivity"
+            android:enabled="true"
+            android:exported="true" />
 
     </application>
 

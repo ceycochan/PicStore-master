@@ -7,81 +7,145 @@
     android:orientation="vertical"
     tools:context="com.nshane.picstore.MainActivity">
 
-    <Button
-        android:id="@+id/btn_1"
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Component Invoke 2 DataBinding"
-        android:textAllCaps="false" />
+        android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Download Service/AIDL"
-        android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/btn_3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Glide TRAIL"
-        android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/btn_4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="ImageLoader Test"
-        android:textAllCaps="false" />
-
-    <Button
-        android:id="@+id/btn_5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Component Test"
-        android:textAllCaps="false" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
 
-    <Button
-        android:id="@+id/btn_6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="SimpleDateFormat"
-        android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Component Invoke 2 DataBinding"
+                android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/btn_7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Share / Null Transfer"
-        android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Download Service/AIDL"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Glide TRAIL"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="ImageLoader Test"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Component Test"
+                android:textAllCaps="false" />
 
 
-    <Button
-        android:id="@+id/btn_8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="FeedBack"
-        android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="SimpleDateFormat"
+                android:textAllCaps="false" />
 
-    <Button
-        android:id="@+id/btn_9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="ConstraintLayout"
-        android:textAllCaps="false" />
+            <Button
+                android:id="@+id/btn_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Share / Null Transfer"
+                android:textAllCaps="false" />
 
 
+            <Button
+                android:id="@+id/btn_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="FeedBack"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="ConstraintLayout"
+                android:textAllCaps="false" />
+
+
+            <Button
+                android:id="@+id/btn_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Toolbar"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Immersive"
+                android:textAllCaps="false" />
+
+
+            <Button
+                android:id="@+id/btn_12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="RXJAVA"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Popup Window"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Flash Anim"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="General Dialog / 全局调用"
+                android:textAllCaps="false" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </LinearLayout>

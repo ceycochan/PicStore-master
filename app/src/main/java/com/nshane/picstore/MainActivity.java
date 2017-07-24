@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -14,10 +15,17 @@ import com.nshane.picstore.config.Constant;
 import com.nshane.picstore.http.MyTask;
 import com.nshane.picstore.ui.ConstraintActivity;
 import com.nshane.picstore.ui.FeedbackActivity;
+import com.nshane.picstore.ui.FlashAnimActivity;
+import com.nshane.picstore.ui.ImmersiveActivity;
+import com.nshane.picstore.ui.PopWindowActivity;
 import com.nshane.picstore.ui.ServiceActivity;
+import com.nshane.picstore.ui.ToolbarActivity;
 import com.nshane.picstore.utils.FileUtil;
+import com.nshane.picstore.utils.ProgressDialog;
 
 import java.io.File;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -43,6 +51,17 @@ public class MainActivity extends AppCompatActivity {
     Button btn8;
     @BindView(R.id.btn_9)
     Button btn9;
+    @BindView(R.id.btn_10)
+    Button btn10;
+    @BindView(R.id.btn_11)
+    Button btn11;
+    @BindView(R.id.btn_13)
+    Button btn13;
+    @BindView(R.id.btn_14)
+    Button btn14;
+    @BindView(R.id.btn_15)
+    Button btn15;
+    private TimerTask timerTask;
 
 
     @Override
@@ -55,7 +74,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.btn_1, R.id.btn_2, R.id.btn_3, R.id.btn_4, R.id.btn_5, R.id.btn_6, R.id.btn_7, R.id.btn_8, R.id.btn_9})
+    @OnClick({R.id.btn_1, R.id.btn_2, R.id.btn_3, R.id.btn_4,
+            R.id.btn_5, R.id.btn_6, R.id.btn_7, R.id.btn_8,
+            R.id.btn_9, R.id.btn_10, R.id.btn_11, R.id.btn_13,
+            R.id.btn_14, R.id.btn_15})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_1:
@@ -64,6 +86,10 @@ public class MainActivity extends AppCompatActivity {
                 /**
                  * if specified activity invoked is not MainActivity of the App, the activity intent to be
                  * invoked should be add  android:exported="true"
+                 */
+
+                /**
+                 * 启动另一个APP
                  */
                 intent.setComponent(new ComponentName("com.nshane.databinding", "com.nshane.databinding.ui.MainActivity"
                 ));
@@ -97,12 +123,54 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.btn_9:
                 startActivity(new Intent(this, ConstraintActivity.class)); // for layout test only
+                break;
+            case R.id.btn_10:
+                startActivity(new Intent(this, ToolbarActivity.class));
+                break;
+            case R.id.btn_11:
+                startActivity(new Intent(this, ImmersiveActivity.class));
+                break;
+            case R.id.btn_13:
+                startActivity(new Intent(this, PopWindowActivity.class));
+                break;
+            case R.id.btn_14:
+                startActivity(new Intent(this, FlashAnimActivity.class));
+                break;
+            case R.id.btn_15:
+                /**
+                 * 适用于全局调用的Dialog
+                 */
+                ProgressDialog.getInstance().showProgress(this, "Loading");
+
+                Timer timer = new Timer();
+                timerTask = new TimerTask() {
+                    @Override
+                    public void run() {
+                        Message message = new Message();
+                        message.what = 1;
+                        mHandler.sendMessage(message);
+
+                    }
+                };
+
+                timer.schedule(timerTask, 2500);
+                break;
+
             default:
                 break;
         }
     }
 
-    private void shareApp() {
+    class SimTask extends TimerTask {
+
+        @Override
+        public void run() {
+            Toast.makeText(MainActivity.this, "下载完毕", Toast.LENGTH_SHORT).show();
+            ProgressDialog.getInstance().cancelProgress();
+        }
+    }
+
+    private void shareApp() {   //设备平台的分享
 
         /**
          * if here used at fragment,declare activity judgement
@@ -177,5 +245,21 @@ public class MainActivity extends AppCompatActivity {
         MyTask.runInBackground(runSend, false);
     }
 
-    private Handler mHandler = new Handler();
+    private Handler mHandler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            if (msg.what == 1) {
+                Toast.makeText(MainActivity.this, "下载完毕", Toast.LENGTH_SHORT).show();
+                ProgressDialog.getInstance().cancelProgress();
+            }
+        }
+    };
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        timerTask.cancel();
+    }
 }
