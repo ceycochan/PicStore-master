@@ -55,24 +55,12 @@
         Instead, the activity remains running and its onConfigurationChanged() method is called.-->
 
         <activity
-            android:name=".ui.ConstraintActivity"
-            android:enabled="true"
-            android:exported="false"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".ui.ToolbarActivity"
             android:enabled="true"
             android:exported="false" />
-        <activity android:name=".ui.ImmersiveActivity" />
 
-        <activity
-            android:name=".ui.RXJavaActivity"
-            android:enabled="true"
-            android:exported="false" />
-        <activity
-            android:name=".ui.RXRetrofitActivity"
-            android:enabled="true"
-            android:exported="false" />
+        <!-- 适配华为 -->
+        <activity android:name=".ui.ImmersiveActivity" />
 
         <activity
             android:name=".ui.RetrofitActivity"

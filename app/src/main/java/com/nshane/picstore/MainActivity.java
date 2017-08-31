@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import com.nshane.picstore.config.Constant;
 import com.nshane.picstore.http.MyTask;
-import com.nshane.picstore.ui.ConstraintActivity;
 import com.nshane.picstore.ui.FeedbackActivity;
 import com.nshane.picstore.ui.FlashAnimActivity;
 import com.nshane.picstore.ui.ImmersiveActivity;
@@ -37,20 +36,12 @@ public class MainActivity extends AppCompatActivity {
     Button btn1;
     @BindView(R.id.btn_2)
     Button btn2;
-    @BindView(R.id.btn_3)
-    Button btn3;
-    @BindView(R.id.btn_4)
-    Button btn4;
-    @BindView(R.id.btn_5)
-    Button btn5;
     @BindView(R.id.btn_6)
     Button btn6;
     @BindView(R.id.btn_7)
     Button btn7;
     @BindView(R.id.btn_8)
     Button btn8;
-    @BindView(R.id.btn_9)
-    Button btn9;
     @BindView(R.id.btn_10)
     Button btn10;
     @BindView(R.id.btn_11)
@@ -74,9 +65,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    @OnClick({R.id.btn_1, R.id.btn_2, R.id.btn_3, R.id.btn_4,
-            R.id.btn_5, R.id.btn_6, R.id.btn_7, R.id.btn_8,
-            R.id.btn_9, R.id.btn_10, R.id.btn_11, R.id.btn_13,
+    @OnClick({R.id.btn_1, R.id.btn_2, R.id.btn_6, R.id.btn_7, R.id.btn_8,
+            R.id.btn_10, R.id.btn_11, R.id.btn_13,
             R.id.btn_14, R.id.btn_15})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -84,45 +74,31 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "点击了", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 /**
-                 * if specified activity invoked is not MainActivity of the App, the activity intent to be
-                 * invoked should be add  android:exported="true"
+                 * remark:
+                 *
+                 * if specified activity invoked is not MainActivity (!!!) of the App, the activity intent to be
+                 * invoked should be add  android:exported="true"  which alleged @ manifest
                  */
 
-                /**
-                 * 启动另一个APP
-                 */
+                // 启动设备下某一指定APP
                 intent.setComponent(new ComponentName("com.nshane.databinding", "com.nshane.databinding.ui.MainActivity"
                 ));
+
                 startActivity(intent);
                 break;
             case R.id.btn_2:
                 startActivity(new Intent(this, ServiceActivity.class));
                 break;
-            case R.id.btn_3:
-                break;
-            case R.id.btn_4:
-                break;
-            case R.id.btn_5:
-                break;
             case R.id.btn_6:
                 startActivity(new Intent(this, DataFormatActivity.class));
                 break;
             case R.id.btn_7:
-                /**
-                 * simulating share a png
-                 */
+                // simulating share img & txt
                 shareApp();
-//                Toast.makeText(this, "Sharing Only", Toast.LENGTH_SHORT).show();
-
                 break;
             case R.id.btn_8:
-                /**
-                 *  simulating feedback // haha
-                 */
+                //simulating feedback
                 startActivity(new Intent(this, FeedbackActivity.class));
-                break;
-            case R.id.btn_9:
-                startActivity(new Intent(this, ConstraintActivity.class)); // for layout test only
                 break;
             case R.id.btn_10:
                 startActivity(new Intent(this, ToolbarActivity.class));
@@ -137,9 +113,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, FlashAnimActivity.class));
                 break;
             case R.id.btn_15:
-                /**
-                 * 适用于全局调用的Dialog
-                 */
+               // Dialog invoking @ around the app
                 ProgressDialog.getInstance().showProgress(this, "Loading");
 
                 Timer timer = new Timer();
@@ -152,21 +126,10 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 };
-
                 timer.schedule(timerTask, 2500);
                 break;
-
             default:
                 break;
-        }
-    }
-
-    class SimTask extends TimerTask {
-
-        @Override
-        public void run() {
-            Toast.makeText(MainActivity.this, "下载完毕", Toast.LENGTH_SHORT).show();
-            ProgressDialog.getInstance().cancelProgress();
         }
     }
 

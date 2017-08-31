@@ -34,30 +34,6 @@
                 android:text="Download Service/AIDL"
                 android:textAllCaps="false" />
 
-            <Button
-                android:id="@+id/btn_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Glide TRAIL"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/btn_4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="ImageLoader Test"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/btn_5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Component Test"
-                android:textAllCaps="false" />
-
 
             <Button
                 android:id="@+id/btn_6"
@@ -84,14 +60,6 @@
                 android:text="FeedBack"
                 android:textAllCaps="false" />
 
-            <Button
-                android:id="@+id/btn_9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="ConstraintLayout"
-                android:textAllCaps="false" />
-
 
             <Button
                 android:id="@+id/btn_10"
@@ -109,14 +77,6 @@
                 android:text="Immersive"
                 android:textAllCaps="false" />
 
-
-            <Button
-                android:id="@+id/btn_12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="RXJAVA"
-                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/btn_13"
@@ -139,7 +99,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="General Dialog / 全局调用"
+                android:text="General Dialog / 全局通用Dialog"
                 android:textAllCaps="false" />
 
 
