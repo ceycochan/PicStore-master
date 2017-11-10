@@ -3,9 +3,7 @@ package com.nshane.picstore.utils;
 import android.app.Activity;
 import android.content.Context;
 
-/**
- * Created by lzz on 2016/12/17.
- */
+
 public class ProgressDialog {
     private static ProgressDialog ourInstance = new ProgressDialog();
 

@@ -6,9 +6,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nshane.picstore.config.Constant;
@@ -19,8 +21,10 @@ import com.nshane.picstore.ui.ImmersiveActivity;
 import com.nshane.picstore.ui.PopWindowActivity;
 import com.nshane.picstore.ui.ServiceActivity;
 import com.nshane.picstore.ui.ToolbarActivity;
+import com.nshane.picstore.utils.Constants;
 import com.nshane.picstore.utils.FileUtil;
 import com.nshane.picstore.utils.ProgressDialog;
+import com.nshane.picstore.utils.SharePreferenceManager;
 
 import java.io.File;
 import java.util.Timer;
@@ -52,6 +56,10 @@ public class MainActivity extends AppCompatActivity {
     Button btn14;
     @BindView(R.id.btn_15)
     Button btn15;
+    @BindView(R.id.tv_pack)
+    TextView tvPack;
+    @BindView(R.id.btn_16)
+    Button btn16;
     private TimerTask timerTask;
 
 
@@ -61,13 +69,21 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        // 更改build.gradle下的APPID,以打包开发版 & 上线版
+        tvPack.setText("CurAppId:" + getPackageName());
+
+
+        int backgroundID = SharePreferenceManager.getInt(PicStoreApplication.getInstance(), SharePreferenceManager.BGInfoXml.XML_NAME,
+                SharePreferenceManager.BGInfoXml.BACKGROUND.key, SharePreferenceManager.BGInfoXml.BACKGROUND.defaultValue);
+
+        getWindow().getDecorView().setBackgroundResource(Constants.BG[backgroundID]);
 
     }
 
 
     @OnClick({R.id.btn_1, R.id.btn_2, R.id.btn_6, R.id.btn_7, R.id.btn_8,
             R.id.btn_10, R.id.btn_11, R.id.btn_13,
-            R.id.btn_14, R.id.btn_15})
+            R.id.btn_14, R.id.btn_15, R.id.btn_16})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_1:
@@ -113,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, FlashAnimActivity.class));
                 break;
             case R.id.btn_15:
-               // Dialog invoking @ around the app
+                // Dialog invoking @ around the app
                 ProgressDialog.getInstance().showProgress(this, "Loading");
 
                 Timer timer = new Timer();
@@ -128,9 +144,43 @@ public class MainActivity extends AppCompatActivity {
                 };
                 timer.schedule(timerTask, 2500);
                 break;
+
+            case R.id.btn_16:
+
+                showShareDialog();
+
+                break;
             default:
                 break;
         }
+    }
+
+
+    private void showShareDialog() {
+
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.share_comment_dialog);
+        builder.setView(getLayoutInflater().inflate(R.layout.dialog_to_share, null));
+        final AlertDialog dialog = builder.create();
+        dialog.show();
+        ((TextView) dialog.findViewById(R.id.tv_hint)).setText("fuck all");
+        dialog.findViewById(R.id.tv_share).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Sharing...", Toast.LENGTH_LONG).show();
+                dialog.dismiss();
+            }
+        });
+
+        dialog.findViewById(R.id.tv_cancel).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Cancel", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+
+
     }
 
     private void shareApp() {   //设备平台的分享
